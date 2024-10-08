@@ -257,7 +257,7 @@ class Board:
                 original_position, destination_position
             )
 
-        if self.can_promote(piece):
+        if self.can_promote(piece) and promotion_class is not None:
             self.promote_piece(destination_position, class_to_promote=promotion_class)
 
         return piece, captured_piece
