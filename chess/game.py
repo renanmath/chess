@@ -22,6 +22,7 @@ class Game:
         self.threatening_pieces: dict[ChessColor, list[Piece]] = {
             c: [] for c in ChessColor
         }
+        self.winning_player: ChessColor | None = None
 
         for piece in self.board.pieces:
             if isinstance(piece, King):
@@ -217,6 +218,7 @@ class Game:
         if isinstance(piece, King):
             self.kings_position[piece.color] = str(piece.current_position)
 
-        self.verify_check_mate(king_color=opponent_color[piece.color])
+        if self.verify_check_mate(king_color=opponent_color[piece.color]):
+            self.winning_player = piece.color
 
         return piece
