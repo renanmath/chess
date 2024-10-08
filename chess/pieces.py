@@ -37,11 +37,19 @@ class Pawn(Piece):
         super().__init__(color, current_position)
 
     def get_possible_positions_to_move(self) -> list[Position]:
-        possible_positions = [
-            self.current_position.get_up_position(),
-            self.current_position.get_left_up_position(),
-            self.current_position.get_right_up_position(),
-        ]
+        if self.color == ChessColor.WHITE:
+            possible_positions = [
+                self.current_position.get_up_position(),
+                self.current_position.get_left_up_position(),
+                self.current_position.get_right_up_position(),
+            ]
+        else:
+            possible_positions = [
+                self.current_position.get_down_position(),
+                self.current_position.get_left_down_position(),
+                self.current_position.get_right_down_position(),
+            ]
+
         if self.num_movements == 0:
             try:
                 if self.color == ChessColor.WHITE:
