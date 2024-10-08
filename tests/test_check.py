@@ -173,4 +173,3 @@ def test_check_mate_07():
     assert len(game.threatening_pieces[ChessColor.BLACK]) == 0
     assert game.verify_check_mate(king_color=ChessColor.BLACK) == True
     assert len(game.threatening_pieces[ChessColor.BLACK]) == 2
-

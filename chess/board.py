@@ -272,5 +272,3 @@ class Board:
         board_copy = Board()
         board_copy.initialize_board(pieces=deepcopy(self.pieces))
         return board_copy
-
-

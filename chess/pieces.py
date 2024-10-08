@@ -256,4 +256,3 @@ def get_second_diagonal(current_position: Position):
             yield position
         else:
             break
-

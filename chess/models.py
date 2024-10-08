@@ -110,10 +110,12 @@ def coordinates_2_position(coordinates: tuple[int, int]) -> Position | None:
 
 
 def name_2_position(name: str) -> Position:
-    x = LetterPosition[name[0].upper()]
-    y = NumberPosition(int(name[1]))
-
-    return Position(x, y)
+    try:
+        x = LetterPosition[name[0].upper()]
+        y = NumberPosition(int(name[1]))
+        return Position(x, y)
+    except KeyError:
+        raise ChessException(f"Wrong position notation")
 
 
 PIECE_SYMBOLS = {

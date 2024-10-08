@@ -367,4 +367,3 @@ def test_promotion_01():
     assert isinstance(promoted_piece, Rock)
     assert white_pawn not in board.pieces
     assert promoted_piece in board.pieces
-
