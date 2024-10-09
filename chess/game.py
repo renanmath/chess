@@ -80,6 +80,17 @@ class Game:
 
         if destination_position not in list(piece.get_possible_positions_to_move()):
             return False
+
+        if isinstance(piece, Pawn):
+            pawn_position = piece.current_position
+            if other_piece is None and destination_position in [
+                pawn_position.get_left_down_position(),
+                pawn_position.get_left_up_position(),
+                pawn_position.get_right_down_position(),
+                pawn_position.get_right_up_position(),
+            ]:
+                return False
+
         if not isinstance(piece, Knight):
             return self.verify_if_path_is_not_blocked_by_another_piece(
                 position, destination
